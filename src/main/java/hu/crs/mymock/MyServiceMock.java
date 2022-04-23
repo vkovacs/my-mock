@@ -6,22 +6,22 @@ import java.lang.reflect.Proxy;
 import java.util.Optional;
 
 //https://www.kdgregory.com/index.php?page=junit.proxy
-public class ToBeMockedMock implements InvocationHandler {
+public class MyServiceMock implements InvocationHandler {
     private Optional<Integer> one = Optional.empty();
     private Optional<Integer> two = Optional.empty();
 
-    public ToBeMockedMock stubOne(int value) {
+    public MyServiceMock stubOne(int value) {
         one = Optional.of(value);
         return this;
     }
 
-    public ToBeMockedMock stubTwo(int value) {
+    public MyServiceMock stubTwo(int value) {
         two = Optional.of(value);
         return this;
     }
 
-    public ToBeMocked stub() {
-        return (ToBeMocked) Proxy.newProxyInstance(this.getClass().getClassLoader(), new Class[]{ToBeMocked.class}, this);
+    public MyService build() {
+        return (MyService) Proxy.newProxyInstance(this.getClass().getClassLoader(), new Class[]{MyService.class}, this);
     }
 
     @Override

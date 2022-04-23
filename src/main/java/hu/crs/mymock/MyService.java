@@ -1,6 +1,6 @@
 package hu.crs.mymock;
 
-public interface ToBeMocked {
+public interface MyService {
     int one();
 
     int two();

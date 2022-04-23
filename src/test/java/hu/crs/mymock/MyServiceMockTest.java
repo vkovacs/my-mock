@@ -5,11 +5,11 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public class MyMockTest {
+public class MyServiceMockTest {
     @Test
     void canCreateMock() {
         //given
-        ToBeMocked mock = new ToBeMockedMock().stub();
+        MyService mock = new MyServiceMock().build();
 
         //when - then
         assertThrows(UnsupportedOperationException.class, mock::one);
@@ -18,10 +18,10 @@ public class MyMockTest {
     @Test
     void canCreateMockMockOneMockTwo() {
         //given
-        ToBeMocked mock = new ToBeMockedMock()
+        MyService mock = new MyServiceMock()
                 .stubOne(3)
                 .stubTwo(4)
-                .stub();
+                .build();
 
         //when
         assertEquals(mock.one(), 3);

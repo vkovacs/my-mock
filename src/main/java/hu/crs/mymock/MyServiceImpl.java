@@ -1,6 +1,6 @@
 package hu.crs.mymock;
 
-public class ToBeMockedImpl implements ToBeMocked {
+public class MyServiceImpl implements MyService {
     @Override
     public int one() {
         return 1;
